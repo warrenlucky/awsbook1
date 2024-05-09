@@ -1,0 +1,13 @@
+---
+schemaVersion: "2.2"
+description: "Install Apache And Add Sample Web Page"
+mainSteps:
+- action: "aws:runShellScript"
+  name: "MainCommand"
+  inputs:
+    runCommand:
+    - "sudo yum update -y"
+    - "sudo yum install httpd -y"
+    - "sudo echo '<h1>Sample Web Page</h1>' > /var/www/html/index.html"
+    - "sudo systemctl start httpd"
+    - "sudo systemctl enable httpd"
